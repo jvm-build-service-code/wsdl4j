@@ -856,12 +856,12 @@ public class WSDLReaderImpl implements WSDLReader
   }
 
   protected void parseExtensibilityAttributes(Element el,
-                                              AttributeExtensible attrExt,
+                                              Part part,
                                               Definition def)
                                                 throws WSDLException
   {
-    List nativeAttributeNames = attrExt.getNativeAttributeNames();
-    Map extAttributes = attrExt.getExtensionAttributes();
+    List nativeAttributeNames = Arrays.asList(Constants.PART_ATTR_NAMES);
+    Map extAttributes = part.getExtensionAttributes();
     NamedNodeMap nodeMap = el.getAttributes();
     int length = nodeMap.getLength();
 

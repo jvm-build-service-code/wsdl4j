@@ -20,8 +20,6 @@ public class PartImpl implements Part
   protected QName typeName = null;
   protected Element docEl = null;
   protected Map extensionAttributes = new HashMap();
-  protected List nativeAttributeNames =
-    Arrays.asList(Constants.PART_ATTR_NAMES);
 
   public static final long serialVersionUID = 1;
 
@@ -33,7 +31,7 @@ public class PartImpl implements Part
   public void setName(String name)
   {
     this.name = name;
-  }  
+  }
 
   /**
    * Get the name of this part.
@@ -43,7 +41,7 @@ public class PartImpl implements Part
   public String getName()
   {
     return name;
-  }  
+  }
 
   public void setElementName(QName elementName)
   {
@@ -116,17 +114,6 @@ public class PartImpl implements Part
   public Map getExtensionAttributes()
   {
     return extensionAttributes;
-  }
-
-  /**
-   * Get the list of local attribute names defined for this element in
-   * the WSDL specification.
-   *
-   * @return a List of Strings, one for each local attribute name
-   */
-  public List getNativeAttributeNames()
-  {
-    return nativeAttributeNames;
   }
 
   /**

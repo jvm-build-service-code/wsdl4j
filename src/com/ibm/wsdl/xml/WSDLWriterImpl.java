@@ -769,12 +769,12 @@ public class WSDLWriterImpl implements WSDLWriter
     }
   }
 
-  protected void printExtensibilityAttributes(AttributeExtensible attrExt,
+  protected void printExtensibilityAttributes(Part part,
                                               Definition def,
                                               PrintWriter pw)
                                                 throws WSDLException
   {
-    Map extensionAttributes = attrExt.getExtensionAttributes();
+    Map extensionAttributes = part.getExtensionAttributes();
     Iterator attrNames = extensionAttributes.keySet().iterator();
 
     while (attrNames.hasNext())
