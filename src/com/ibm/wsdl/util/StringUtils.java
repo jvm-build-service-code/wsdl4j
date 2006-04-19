@@ -117,31 +117,22 @@ public class StringUtils
   public static URL getURL(URL contextURL, String spec)
     throws MalformedURLException
   {
-    if (contextURL != null)
-    {
-      File tempFile = new File(spec);
-
-      if (tempFile.isAbsolute())
+      try
       {
-        return tempFile.toURL();
+        return new URL(contextURL, spec);
       }
-    }
-
-    try
-    {
-      return new URL(contextURL, spec);
-    }
-    catch (MalformedURLException e)
-    {
-      if (contextURL == null)
+      catch (MalformedURLException e)
       {
-        return new File(spec).toURL();
-      }
-      else
-      {
+        File tempFile = new File(spec);
+        if (contextURL == null ||
+            (contextURL != null && tempFile.isAbsolute()))
+        {
+          return tempFile.toURL();
+        }
+        
+        // only reach here if the contextURL is !null & spec is relative path
         throw e;
       }
-    }
   }
 
   /*
